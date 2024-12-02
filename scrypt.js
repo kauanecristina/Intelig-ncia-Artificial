@@ -40,23 +40,30 @@ const historia = [
             "Cria uma campanha global de conscientização ambiental usando IA."
         ]
     },
-];
+]
 
-let etapaAtual = 0;
+    mostrePergunta();
 
-function mostraPergunta() {
-    perguntaAtual= historia[etapaAtual];
-    containerPerguntas.textContent = etapa.enunciado;
-    containerAlternativas.innerHTML = "";
+    let atual= 0;
+    let perguntaAtual; 
+    
+function_mostraPergunta()
+{
+    perguntaAtual= perguntas[atual];
+    caixaPerguntas.textContent=perguntaAtual.enunciado;
+    mostreAlternativas();
+    }
 
-    etapa.alternativas.forEach((alternativa, index) => {
-        const botao = document.createElement("button");
-        botao.textContent = alternativa;
-        botao.classList.add("alternativa");
-        botao.addEventListener("click", () => avancaHistoria(index));
-        containerAlternativas.appendChild(botao);
-    });
-}
+    mostrePergunta();
+
+    function mostreAlternativas (){
+        for(const alternativa of perguntaAtual.alternativas){
+            const botaoAlternativas =documnt.crateElement ("button");
+            botaoAlternativas.textContent= alternativa;
+            caixaAlternativas.appendChild(botaoAlternativas);
+
+        }
+    }
 
 function avancaHistoria(index) {
     console.log(`Escolha feita: ${historia[etapaAtual].alternativas[index]}`);
